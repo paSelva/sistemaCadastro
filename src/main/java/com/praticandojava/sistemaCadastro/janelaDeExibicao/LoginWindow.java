@@ -29,6 +29,7 @@ public class LoginWindow extends JFrame{
         JLabel senha = new JLabel("Senha");
 
         JButton botaoLogin = new JButton("Entrar");
+        JButton botaoCadastrar = new JButton("Cadastrar");
 
         // Configurando o botao login
         botaoLogin.addActionListener(new ActionListener(){
@@ -46,6 +47,14 @@ public class LoginWindow extends JFrame{
             }
         });
 
+        // Configurando o botao cadastrar
+        botaoCadastrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RegisterWindow();
+            }
+        });
+
         // Adiciona os componentes
         cadastro.add(usuario);
         usuario.setBounds(100, 100, 100, 30);
@@ -57,6 +66,8 @@ public class LoginWindow extends JFrame{
         campoSenha.setBounds(150, 150, 100, 30);
         cadastro.add(botaoLogin);
         botaoLogin.setBounds(150, 200, 100, 30);
+        cadastro.add(botaoCadastrar);
+        botaoCadastrar.setBounds(150, 250, 100, 30);
         cadastro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
