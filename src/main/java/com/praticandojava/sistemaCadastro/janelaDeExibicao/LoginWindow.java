@@ -9,12 +9,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginWindow extends JFrame{
+public class LoginWindow extends JPanel{
 
     private JTextField campoUsuario = new JTextField();
     private JPasswordField campoSenha = new JPasswordField();
+    private MainWindow mainWindow;
 
-    public LoginWindow() {
+
+
+    public LoginWindow(MainWindow mainWindow) {
+        this.mainWindow = mainWindow;
+
         // Criar e configurar a janela
         JFrame cadastro = new JFrame();
         cadastro.setTitle("login");
@@ -47,13 +52,7 @@ public class LoginWindow extends JFrame{
             }
         });
 
-        // Configurando o botao cadastrar
-        botaoCadastrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new RegisterWindow();
-            }
-        });
+
 
         // Adiciona os componentes
         cadastro.add(usuario);
@@ -114,12 +113,5 @@ public class LoginWindow extends JFrame{
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new LoginWindow();
-            }
-        });
-    }
+
 }

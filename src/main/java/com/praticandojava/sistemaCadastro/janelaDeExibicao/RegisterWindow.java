@@ -8,13 +8,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class RegisterWindow extends JFrame {
+public class RegisterWindow extends JPanel {
 
     private JTextField campoUsuario = new JTextField();
     private JPasswordField campoSenha = new JPasswordField();
     private JPasswordField campoConfirmarSenha = new JPasswordField();
+    private MainWindow mainWindow;
 
-    public RegisterWindow() {
+    public RegisterWindow(MainWindow mainWindow) {
+        this.mainWindow = mainWindow;
+
 
         // Criar e configurar a janela
         JFrame cadastro = new JFrame();
@@ -57,14 +60,8 @@ public class RegisterWindow extends JFrame {
         });
 
 
-        // Configurando o botao voltar
-        botaoVoltar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cadastro.dispose();
-                new LoginWindow();
-            }
-        });
+
+
 
         // Adiciona os componentes na janela
         cadastro.add(campoUsuario);
@@ -119,13 +116,5 @@ public class RegisterWindow extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new RegisterWindow();
-            }
-        });
-    }
 
 }
